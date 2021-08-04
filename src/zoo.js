@@ -36,6 +36,8 @@ function createEmployee(personalInfo, associatedWith) {
 
 function isManager(id) {
   // seu código aqui
+  // Referência -> Source: https://ricardo-reis.medium.com/indexof-e-lastindexof-do-array-javascript-ac93f0848bd2
+  return employees.some(({ managers }) => managers.indexOf(id) !== -1);
 }
 
 function addEmployee(id, firstName, lastName, managers, responsibleFor) {

@@ -14,8 +14,11 @@ function getAnimalsOlderThan(animal, age) {
 }
 
 console.log(getAnimalsOlderThan('otters', 7));
-function getEmployeeByName(employeeName = {}) {
+function getEmployeeByName(employeeName) {
   // seu código aqui
+  if (employeeName === undefined) {
+    return {};
+  }
   return employees.find(({ firstName, lastName }) =>
     (firstName === employeeName) || (lastName === employeeName));
 }

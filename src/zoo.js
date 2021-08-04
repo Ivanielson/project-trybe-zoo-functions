@@ -9,16 +9,13 @@ function getSpeciesByIds(id1, id2 = '') {
 
 function getAnimalsOlderThan(animal, age) {
   // seu código aqui
-  return species.filter((animals) => animals.name === animal)[0].residents
-    .every(({ age: idade }) => (idade >= age));
+  return species.find((animals) => animals.name === animal)
+    .residents.every(({ age: idade }) => (idade >= age));
 }
 
-console.log(getAnimalsOlderThan('otters', 7));
 function getEmployeeByName(employeeName) {
   // seu código aqui
-  if (employeeName === undefined) {
-    return {};
-  }
+  if (!employeeName) return {};
   return employees.find(({ firstName, lastName }) =>
     (firstName === employeeName) || (lastName === employeeName));
 }

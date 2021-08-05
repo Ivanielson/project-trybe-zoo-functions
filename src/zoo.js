@@ -50,10 +50,12 @@ function addEmployee(id, firstName, lastName, managers = [], responsibleFor = []
 
 function countAnimals(specie) {
   // seu código aqui
+  /* Consultei o repositório do Rodolfo Braga para entender e resolver essa parent;
+  Link: https://github.com/tryber/sd-014-b-project-zoo-functions/pull/35 */
   if (!specie) {
-    return species.reduce((result, { name, residents }) => {
-      result[name] = residents.length;
-      return result;
+    return species.reduce((acc, { name, residents }) => {
+      acc[name] = residents.length;
+      return acc;
     }, {});
   }
   return species.find((animals) => animals.name === specie).residents.length;

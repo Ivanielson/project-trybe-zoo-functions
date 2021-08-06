@@ -1,3 +1,4 @@
+const { getAllLocations } = require('./getAnimalsLocation');
 const { species } = require('./data');
 const { employees } = require('./data');
 const { prices } = require('./data');
@@ -74,6 +75,9 @@ function calculateEntry(...entrants) {
 
 function getAnimalMap(options) {
   // seu código aqui
+  if (!options) {
+    return getAllLocations();
+  }
 }
 
 function getSchedule(dayName) {
@@ -86,6 +90,11 @@ function getOldestFromFirstSpecies(id) {
 
 function increasePrices(percentage) {
   // seu código aqui
+  const { Adult, Child, Senior } = prices;
+  const porcent = Math.fround((percentage / 100));
+  prices.Adult = parseFloat(Math.fround((porcent * Adult) + Adult).toFixed(2));
+  prices.Child = parseFloat(Math.fround((porcent * Child) + Child).toFixed(2));
+  prices.Senior = parseFloat(Math.fround((porcent * Senior) + Senior).toFixed(2));
 }
 
 function getEmployeeCoverage(idOrName) {

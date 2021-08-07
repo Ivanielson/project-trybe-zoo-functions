@@ -1,5 +1,6 @@
 const { getAllLocations } = require('./getAnimalsLocation');
 const { species, employees, prices, hours } = require('./data');
+const { getEmployee, getAllEmployes } = require('./getEmployeeCoverage');
 
 const data = require('./data');
 
@@ -112,8 +113,11 @@ function increasePrices(percentage) {
 
 function getEmployeeCoverage(idOrName) {
   // seu código aqui
+  if (!idOrName) return getAllEmployes();
+  return getEmployee(idOrName);
 }
 
+console.log(getEmployeeCoverage('Stephanie'));
 module.exports = {
   calculateEntry,
   getSchedule,

@@ -1,11 +1,11 @@
 const { species } = require('./data');
 
-// Funções retornam nomes dos animais por location;
-// <--------------------Início------------------------>
-function getLocationNe() {
+// Função retorna animais por location;
+
+function getAnimalsFormLocation(zone) {
   const names = [];
   const animals = species.reduce((acc, { location, name }) => {
-    if (location === 'NE') {
+    if (location === zone.toUpperCase()) {
       names.push(name);
       acc[location] = names;
     }
@@ -14,47 +14,17 @@ function getLocationNe() {
   return animals;
 }
 
-function getLocationNw() {
-  const names = [];
-  const animals = species.reduce((acc, { location, name }) => {
-    if (location === 'NW') {
-      names.push(name);
-      acc[location] = names;
-    }
-    return acc;
-  }, {});
-  return animals;
-}
-
-function getLocationSe() {
-  const names = [];
-  const animals = species.reduce((acc, { location, name }) => {
-    if (location === 'SE') {
-      names.push(name);
-      acc[location] = names;
-    }
-    return acc;
-  }, {});
-  return animals;
-}
-
-function getLocationSw() {
-  const names = [];
-  const animals = species.reduce((acc, { location, name }) => {
-    if (location === 'SW') {
-      names.push(name);
-      acc[location] = names;
-    }
-    return acc;
-  }, {});
-  return animals;
-}
+// Função retorna todos os animais por location;
 
 const getAllLocations = () => {
-  const obj = Object.assign(getLocationNe(), getLocationNw(), getLocationSe(), getLocationSw());
+  const obj = Object.assign(
+    getAnimalsFormLocation('ne'),
+    getAnimalsFormLocation('nw'),
+    getAnimalsFormLocation('se'),
+    getAnimalsFormLocation('sw'),
+  );
   return obj;
 };
-// <--------------------Fim------------------------>
 
 module.exports = {
   getAllLocations,

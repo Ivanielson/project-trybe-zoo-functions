@@ -75,9 +75,7 @@ function calculateEntry(...entrants) {
 
 function getAnimalMap(options) {
   // seu código aqui
-  if (!options) {
-    return getAllLocations();
-  }
+  if (!options) return getAllLocations();
 }
 
 function getSchedule(dayName) {
@@ -117,7 +115,6 @@ function getEmployeeCoverage(idOrName) {
   return getEmployee(idOrName);
 }
 
-console.log(getEmployeeCoverage('Stephanie'));
 module.exports = {
   calculateEntry,
   getSchedule,

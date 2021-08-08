@@ -26,6 +26,19 @@ const getAllLocations = () => {
   return obj;
 };
 
+const getAllAnimalsFromLocation = () => {
+  const newObjectSpecies = species.map(({ name: nome, location, residents }) => {
+    const obj = {
+      location,
+      [nome]: residents.map((names) => `${names.name}`),
+    };
+    return obj;
+  });
+  return newObjectSpecies;
+};
+
+console.log(getAllAnimalsFromLocation());
+
 module.exports = {
   getAllLocations,
 };

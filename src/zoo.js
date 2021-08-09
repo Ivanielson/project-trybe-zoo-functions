@@ -1,4 +1,4 @@
-const { getAllLocations } = require('./getAnimalsLocation');
+const { getAllLocations, getAllAnimalsFromLocation } = require('./getAnimalsLocation');
 const { species, employees, prices, hours } = require('./data');
 const { getEmployee, getAllEmployes } = require('./getEmployeeCoverage');
 
@@ -76,6 +76,7 @@ function calculateEntry(...entrants) {
 function getAnimalMap(options) {
   // seu código aqui
   if (!options) return getAllLocations();
+  return getAllAnimalsFromLocation(options.includeNames);
 }
 
 function getSchedule(dayName) {
@@ -98,6 +99,10 @@ function getSchedule(dayName) {
 
 function getOldestFromFirstSpecies(id) {
   // seu código aqui
+  const idSpecie = employees.find((employee) => employee.id === id).responsibleFor[0];
+  const animal = species.filter((animals) => animals.id === idSpecie)[0].residents
+    .sort((a, b) => b.age - a.age)[0];
+  return Object.values(animal);
 }
 
 function increasePrices(percentage) {

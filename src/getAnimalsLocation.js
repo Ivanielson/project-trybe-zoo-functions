@@ -27,18 +27,18 @@ const getAllLocations = () => {
 };
 
 const getAllAnimalsFromLocation = () => {
-  const newObjectSpecies = species.map(({ name: nome, location, residents }) => {
+  const listAnimals = species.map(({ name: nome, location }) => {
     const obj = {
-      location,
-      [nome]: residents.map((names) => `${names.name}`),
+      [location]: nome,
     };
     return obj;
   });
-  return newObjectSpecies;
+  return listAnimals;
 };
 
 console.log(getAllAnimalsFromLocation());
 
 module.exports = {
   getAllLocations,
+  getAllAnimalsFromLocation,
 };

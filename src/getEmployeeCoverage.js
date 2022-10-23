@@ -34,8 +34,6 @@ const getAllEmployes = () => {
   return result;
 };
 
-console.log(getAllEmployes());
-
 module.exports = {
   getEmployee,
   getAllEmployes,
